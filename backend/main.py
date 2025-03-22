@@ -1,12 +1,16 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+import os
 
 app = FastAPI(title="Take Home Assessment API")
+
+# Get CORS origins from environment variable or use default
+CORS_ORIGINS = os.getenv("CORS_ORIGINS", "http://localhost:5173").split(",")
 
 # Configure CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],  # React dev server
+    allow_origins=CORS_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -18,4 +22,4 @@ async def root():
 
 @app.get("/api/health")
 async def health_check():
-    return {"status": "healthy", "message": "API is running"} 
+    return {"status": "healthy"} 

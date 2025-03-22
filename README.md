@@ -1,4 +1,6 @@
-# Take Home Assessment
+# BlueprintTake Home Assessment
+
+_David Inwald, Mar '25_
 
 This project consists of a FastAPI backend and a React frontend built with Vite.
 
@@ -25,7 +27,7 @@ This project consists of a FastAPI backend and a React frontend built with Vite.
 ### Frontend Setup
 
 1. Navigate to the frontend directory
-2. Install dependencies: `npm install`
+2. Install dependencies: `npm i`
 3. Run the development server: `npm run dev`
 
 ## Development
