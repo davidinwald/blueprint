@@ -8,7 +8,7 @@ const getBaseUrl = () => {
 
   if (import.meta.env.PROD) {
     // In production, if no API URL is specified, use relative path (Nginx will handle proxying)
-    return apiUrl || "/api";
+    return "http://68.183.58.119:8000/";
   }
 
   // In development, use the local backend URL if no API URL is specified
