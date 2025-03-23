@@ -139,8 +139,8 @@ The application is currently deployed on a DigitalOcean Droplet using Docker Com
 ### Code Samples
 
 - While I don't have publicly available code to share, I can provide detailed technical documentation, architecture diagrams, and implementation overviews that demonstrate my technical capabilities and approach to problem-solving. I can also discuss specific technical challenges and their solutions in detail.
-- I have a blog where I occasionally share some domain-specific technical content: https://inwald.com/blog/
+- Blog where I occasionally share some domain-specific technical content: https://inwald.com/blog/
 - Public TS/JS lib for generating mock dataframes: https://github.com/davidinwald/data_generator
 - https://github.com/inwald (private, but shows contribution history)
 - LinkedIn: https://www.linkedin.com/in/david-inwald-29074511/
-- Email: david@inwald.com
+- Email: david.inwald@gmail.com
