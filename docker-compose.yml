@@ -9,7 +9,10 @@ services:
       - CORS_ORIGINS=http://*
 
   frontend:
-    build: ./frontend
+    build:
+      context: ./frontend
+      args:
+        - VITE_API_URL=http://68.183.58.119:8000
     ports:
       - "80:80"
     environment:
