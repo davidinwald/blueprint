@@ -6,7 +6,7 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - CORS_ORIGINS=${CORS_ORIGINS:-http://localhost:80,https://*.ondigitalocean.app}
+      - CORS_ORIGINS=http://*
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8000/api/health"]
       interval: 30s
@@ -18,7 +18,7 @@ services:
     ports:
       - "80:80"
     environment:
-      - VITE_API_URL=${API_URL:-http://localhost:8000}
+      - VITE_API_URL=http://${DROPLET_IP}:8000
     depends_on:
       backend:
         condition: service_healthy

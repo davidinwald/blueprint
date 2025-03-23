@@ -1,0 +1,7 @@
+spec:
+  name: backend
+  services:
+    - dockerfile_path: Dockerfile
+      git:
+        branch: main
+        repo_clone_url: ${_self.repository}
