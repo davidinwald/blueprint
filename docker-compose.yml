@@ -5,15 +5,13 @@ services:
     build: ./backend
     ports:
       - "8000:8000"
-    environment:
-      - CORS_ORIGINS=http://*
 
   frontend:
     build:
       context: ./frontend
       args:
-        - VITE_API_URL=http://68.183.58.119:8000
+        - VITE_API_URL=http://localhost:8000
     ports:
-      - "80:80"
+      - "5173:80"
     environment:
-      - VITE_API_URL=http://68.183.58.119:8000
+      - VITE_API_URL=http://localhost:8000

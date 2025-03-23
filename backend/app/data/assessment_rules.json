@@ -1,0 +1,18 @@
+{
+  "depression": {
+    "threshold": 2,
+    "assessment": "PHQ-9"
+  },
+  "mania": {
+    "threshold": 2,
+    "assessment": "ASRM"
+  },
+  "anxiety": {
+    "threshold": 2,
+    "assessment": "PHQ-9"
+  },
+  "substance_use": {
+    "threshold": 1,
+    "assessment": "ASSIST"
+  }
+}
