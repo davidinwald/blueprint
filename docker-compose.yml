@@ -7,18 +7,10 @@ services:
       - "8000:8000"
     environment:
       - CORS_ORIGINS=http://*
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8000/api/health"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
 
   frontend:
     build: ./frontend
     ports:
       - "80:80"
     environment:
-      - VITE_API_URL=http://${DROPLET_IP}:8000
-    depends_on:
-      backend:
-        condition: service_healthy
+      - VITE_API_URL=http://68.183.58.119:8000
