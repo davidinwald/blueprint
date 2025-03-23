@@ -83,28 +83,45 @@
 }
 
 .answer-button {
-  padding: 1rem 1.25rem;
-  border: 1px solid var(--blueprint-border);
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid #e2e8f0;
   border-radius: 8px;
-  background: white;
-  font-size: 1rem;
-  color: var(--blueprint-text);
+  background-color: white;
   cursor: pointer;
-  transition: all 0.2s ease;
-  text-align: left;
-  font-weight: 500;
-  position: relative;
-  overflow: hidden;
+  transition: all 0.2s;
+  font-size: 16px;
+  color: #2d3748;
 }
 
 .answer-button:hover {
-  background-color: var(--blueprint-primary-light);
-  border-color: var(--blueprint-primary);
-  transform: translateY(-1px);
+  background-color: #f7fafc;
+  border-color: #cbd5e0;
 }
 
 .answer-button:active {
-  transform: translateY(0);
+  background-color: #edf2f7;
+  border-color: #cbd5e0;
+}
+
+.answer-button:focus {
+  outline: none;
+  border-color: #cbd5e0;
+  box-shadow: none;
+}
+
+.answer-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: #f7fafc;
+}
+
+/* Remove any browser default focus styles */
+.answer-button:focus-visible {
+  outline: none;
+  border-color: #cbd5e0;
+  box-shadow: none;
 }
 
 .screener-loading {
@@ -153,18 +170,6 @@
   to {
     transform: rotate(360deg);
   }
-}
-
-.answer-button:disabled {
-  opacity: 0.7;
-  cursor: not-allowed;
-  transform: none !important;
-}
-
-.answer-button:disabled:hover {
-  background-color: white;
-  border-color: var(--blueprint-border);
-  transform: none;
 }
 
 /* Responsive adjustments */

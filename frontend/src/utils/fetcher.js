@@ -74,7 +74,7 @@ export const api = {
   getScreener: async () => {
     try {
       const response = await fetcher.get("/api/screener/");
-      return response.data;
+      return response;
     } catch (error) {
       console.error("Failed to fetch screener:", error);
       throw error;
@@ -84,7 +84,7 @@ export const api = {
   submitScreener: async (answers) => {
     try {
       const response = await fetcher.post("/api/screener/submit", { answers });
-      return response.data;
+      return response;
     } catch (error) {
       console.error("Failed to submit screener:", error);
       throw error;

@@ -191,9 +191,7 @@ const Screener = () => {
           {section.answers.map((answer) => (
             <button
               key={answer.value}
-              className={`answer-button ${
-                currentAnswer === answer.value ? "selected" : ""
-              }`}
+              className="answer-button"
               onClick={() => handleAnswer(answer.value)}
               disabled={isSubmitting || showSuccess}
             >
