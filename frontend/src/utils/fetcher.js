@@ -4,7 +4,7 @@ import axios from "axios";
 const getBaseUrl = () => {
   if (import.meta.env.PROD) {
     // In production, use the window.location.origin
-    return window.location.origin;
+    return "http://68.183.58.119:8000/";
   }
   // In development, use the local backend URL
   return "http://127.0.0.1:8000";
