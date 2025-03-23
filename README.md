@@ -1,8 +1,19 @@
-# Blueprint Diagnostic Screener Takehome Assessment
+# Blueprint Coding Exercise
 
 _David Inwald, Mar '25_
 
 A web application for conducting mental health screenings using a question-by-question interface. The application collects patient responses and provides recommendations for further assessments based on domain-specific scoring.
+
+## Live Demo
+
+[View the live application](http://68.183.58.119/) at http://68.183.58.119/
+
+## "Production" Access
+
+The application is currently deployed on a DigitalOcean Droplet using Docker Compose:
+
+- Single droplet running both frontend and backend containers
+- Nginx serving the frontend and proxying API requests
 
 ## Local Development Setup
 
@@ -20,6 +31,8 @@ python -m venv venv
 source venv/bin/activate  # On Windows: .\venv\Scripts\activate
 pip install -r requirements.txt
 uvicorn main:app --reload --port 8000
+# tests
+pytest tests/ -v
 ```
 
 ### Frontend Setup
@@ -28,6 +41,8 @@ uvicorn main:app --reload --port 8000
 cd frontend
 npm i
 npm run dev
+# tests
+npm run test
 ```
 
 The application will be available at:
@@ -82,9 +97,7 @@ A full-stack web application with:
 ### Frontend
 
 - **React**: For its component-based architecture and efficient rendering
-- **Axios**: For reliable HTTP requests with interceptors for error handling
-- **CSS Modules**: For scoped styling without conflicts
-- **Environment-aware Configuration**: Handles both development and production settings
+- **ChakraUI**: For a modern, responsive UI with built-in components and a clean design
 
 ## Production Deployment Strategy
 
@@ -104,142 +117,30 @@ The application is currently deployed on a DigitalOcean Droplet using Docker Com
 - Nginx serving the frontend and proxying API requests
 - Direct IP access (e.g., http://droplet-ip:80)
 
-### High Availability & Performance
+### "As a True Production App"
 
-Current setup is basic but functional:
+1. separate frontend and backend containers
+2. use a proper database
+3. "secure it" by implementing RBAC
+4. add logging, monitoring / observability with benchmarking strategy
+5. Ensure domain + regulatory compliance (HIPPA, GDPR, etc best practices where data is decoupled from PII)
+6. Add CI/CD pipeline with code scanning, linting, testing, etc
+7. re: Bug RCA I already hooked up Sentry to frontend and backend, it's great for error tracking and alerting for prod apps
 
-1. **Container Management**
+### "With More Time"
 
-   - Docker Compose managing container lifecycle
-   - Automatic container restarts on failure
-   - Nginx load balancing between frontend and API
+1. improve accessibility, ensure keyboard nav is smooth
+2. integrate with other services (persisting + sharing results, etc)
+3. Study user interactions with the app, study results, study recommendations, study user engagement, study user experience
+4. flesh out DB schema, models, add persistence
+5. "Security" seems like a weak spot here, as there is no authentication
+   - would also like to add rate limiting
 
-2. **Resource Management**
+### Code Samples
 
-   - Docker resource limits for containers
-   - Nginx caching for static assets
-   - Frontend build optimization
-
-3. **Backup & Recovery**
-   - DigitalOcean Droplet snapshots
-   - Docker volume persistence
-   - Container logs retained
-
-### Security Measures
-
-1. **Infrastructure**
-
-   - DigitalOcean firewall rules
-   - SSH key authentication
-   - Regular system updates
-
-2. **Application**
-   - CORS configuration
-   - Input validation
-   - Rate limiting through Nginx
-   - Environment variables for secrets
-
-### Monitoring & Troubleshooting
-
-1. **Logging**
-
-   - Docker container logs
-   - Nginx access and error logs
-   - Application-level logging
-
-2. **Monitoring**
-   - DigitalOcean monitoring basics
-   - Container health checks
-   - Resource usage metrics
-
-### Future Production Improvements
-
-For a more robust production environment, consider:
-
-1. **Infrastructure**
-
-   - Add domain name and SSL certificates
-   - Implement CDN for static assets
-   - Set up proper load balancing
-   - Add database persistence
-
-2. **High Availability**
-
-   - Multiple droplets across regions
-   - Database replication
-   - Container orchestration (e.g., Kubernetes)
-   - Automated backups
-
-3. **Security**
-
-   - SSL/TLS encryption
-   - Web Application Firewall
-   - Regular security audits
-   - Proper secrets management
-
-4. **Monitoring**
-   - Advanced monitoring solution
-   - Automated alerting
-   - Performance tracking
-   - Error tracking service
-
-## Trade-offs and Future Improvements
-
-### Current Trade-offs
-
-1. **Simple Data Storage**
-
-   - Currently using JSON files for configuration
-   - Would need a proper database for production
-
-2. **Basic Authentication**
-
-   - No user authentication implemented
-   - Would need proper auth system for production
-
-3. **Limited Error Recovery**
-   - Basic error handling implemented
-   - Could be more sophisticated with retry mechanisms
-
-### Future Improvements
-
-1. **Features**
-
-   - User authentication and authorization
-   - Save partial progress
-   - Multiple language support
-   - Offline capability
-   - PDF report generation
-   - Analytics dashboard
-
-2. **Technical**
-
-   - Database integration
-   - Test coverage improvement
-   - E2E testing
-   - Performance optimization
-   - Accessibility improvements
-   - Mobile app version
-
-3. **UX/UI**
-
-   - More interactive question types
-   - Better progress visualization
-   - Customizable themes
-   - Keyboard navigation
-   - Screen reader support
-
-4. **Business**
-   - Analytics integration
-   - A/B testing capability
-   - User feedback system
-   - Integration with EHR systems
-   - Custom scoring rules interface
-
-## Contributing
-
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+- While I don't have publicly available code to share, I can provide detailed technical documentation, architecture diagrams, and implementation overviews that demonstrate my technical capabilities and approach to problem-solving. I can also discuss specific technical challenges and their solutions in detail.
+- I have a blog where I occasionally share some domain-specific technical content: https://inwald.com/blog/
+- Public TS/JS lib for generating mock dataframes: https://github.com/davidinwald/data_generator
+- https://github.com/inwald (private, but shows contribution history)
+- LinkedIn: https://www.linkedin.com/in/david-inwald-29074511/
+- Email: david@inwald.com
