@@ -36,9 +36,7 @@ fetcher.interceptors.response.use(
           type: "network_error",
         },
       });
-      return Promise.reject(
-        new Error("Network error - please check your connection")
-      );
+      return Promise.reject(new Error(error));
     }
 
     // Handle timeout errors
@@ -87,7 +85,7 @@ export const api = {
       return response;
     } catch (error) {
       console.error("Failed to submit screener:", error);
-      throw error;
+      throw "Failed to submit answers";
     }
   },
 };
